@@ -1,1 +1,1 @@
-This is the file that contains the database for iStudy.
+This is the file that contains the database.
