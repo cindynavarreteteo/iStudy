@@ -375,7 +375,6 @@ GameObject:
   - component: {fileID: 971030145}
   - component: {fileID: 971030144}
   - component: {fileID: 971030146}
-  - component: {fileID: 971030147}
   m_Layer: 0
   m_Name: AR Session Origin
   m_TagString: Untagged
@@ -426,19 +425,6 @@ MonoBehaviour:
   m_FacePrefab: {fileID: 6515738453480360699, guid: 901d510f0ece24104b696b33e7ee3191,
     type: 3}
   m_MaximumFaceCount: 1
---- !u!114 &971030147
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 971030143}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88711a844dc7c4f658bb616c36efca57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eyeTrackerSupportedText: {fileID: 573267637}
 --- !u!1 &1177322867
 GameObject:
   m_ObjectHideFlags: 0
