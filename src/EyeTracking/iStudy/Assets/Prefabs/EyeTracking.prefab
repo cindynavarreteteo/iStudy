@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6515738453480360694}
   - component: {fileID: 4413770791477470649}
-  - component: {fileID: 833816108804124131}
+  - component: {fileID: 3986952713239796580}
   m_Layer: 0
   m_Name: EyeTracking
   m_TagString: Untagged
@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_DestroyOnRemoval: 1
---- !u!114 &833816108804124131
+--- !u!114 &3986952713239796580
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -54,10 +54,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 6515738453480360699}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5296f5e617314553ac80350be13449b, type: 3}
+  m_Script: {fileID: 11500000, guid: f9976bee9c340b44da14bc31b20499b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftEyePrefab: {fileID: 3268471800138609628, guid: 14475f16d2c544d349205708ba145da7,
-    type: 3}
-  rightEyePrefab: {fileID: 3268471800138609628, guid: e2d99664f13244771b8fb9dd8298fc37,
+  eyeCursor: {fileID: 5180915313586242672, guid: 2fca2c668821a964ea913e8b5a0bc6f3,
     type: 3}
