@@ -70,11 +70,13 @@
     <Compile Include="Assets\MaterialUI\Scripts\ButtonInteractableControl.cs" />
     <Compile Include="Assets\MaterialUI\Scripts\Anim.cs" />
     <Compile Include="Assets\MaterialUI\Scripts\ColorCopier.cs" />
+    <Compile Include="Assets\Scripts\Question.cs" />
     <Compile Include="Assets\MaterialUI\Scripts\ToastAnim.cs" />
     <Compile Include="Assets\MaterialUI\Scripts\RippleControl.cs" />
     <Compile Include="Assets\MaterialUI\Scripts\MaterialUIVersion.cs" />
     <Compile Include="Assets\MaterialUI\Scripts\SelectionBoxSubscriber.cs" />
     <Compile Include="Assets\MaterialUI\Scripts\InputFieldConfig.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\MaterialUI\Scripts\SliderConfig.cs" />
     <Compile Include="Assets\MaterialUI\Scripts\ShadowSnap.cs" />
     <Compile Include="Assets\MaterialUI\Examples\Scripts\05 - Sliders\Example05.cs" />
@@ -97,8 +99,6 @@
     <Compile Include="Assets\MaterialUI\Examples\Scripts\04 - RadioButton\Example04.cs" />
     <Compile Include="Assets\MaterialUI\Scripts\TextInputLine.cs" />
     <Compile Include="Assets\MaterialUI\Scripts\MenuArrowAnim.cs" />
-    <Compile Include="Assets\GameManager.cs" />
-    <Compile Include="Assets\Question.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\MaterialUI\Fonts\NOTICE.txt" />
