@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     private Text falseAnswerText;
 
     [SerializeField]
-    private float timeBetweenQuestions = 1f;
+    private float timeBetweenQuestions = 3f;
 
     [SerializeField]
     private Animator animator;
