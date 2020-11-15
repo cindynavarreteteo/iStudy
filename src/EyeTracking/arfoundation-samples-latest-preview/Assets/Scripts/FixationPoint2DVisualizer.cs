@@ -83,16 +83,16 @@ namespace UnityEngine.XR.ARFoundation.Samples
 
             if(m_Face.fixationPoint==null)
             {
-                m_FixationReticleGameObject.GetComponent<Renderer>().material.color=Color.blue;
+                m_GUIFixationReticlePrefab.GetComponent<Renderer>().material.color=Color.blue;
                 Wait();
-                m_FixationReticleGameObject.GetComponent<Renderer>().material.color=Color.white;
+                m_GUIFixationReticlePrefab.GetComponent<Renderer>().material.color=Color.white;
             }
 
             else if(eyes.rightEyeOpenAmount==0 && eyes.leftEyeOpenAmount==0)
             {
-                m_FixationReticleGameObject.GetComponent<Renderer>().material.color=Color.blue;
+                m_GUIFixationReticlePrefab.GetComponent<Renderer>().material.color=Color.blue;
                 Wait();
-                m_FixationReticleGameObject.GetComponent<Renderer>().material.color=Color.white;
+                m_GUIFixationReticlePrefab.GetComponent<Renderer>().material.color=Color.white;
             }
         }
 
