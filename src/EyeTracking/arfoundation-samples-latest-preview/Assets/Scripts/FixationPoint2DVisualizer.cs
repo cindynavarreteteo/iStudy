@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
+using UnityEngine.InputSystem.XR;
 
 namespace UnityEngine.XR.ARFoundation.Samples
 {
@@ -28,6 +29,8 @@ namespace UnityEngine.XR.ARFoundation.Samples
         Canvas m_Canvas;
         ARFace m_Face;
         XRFaceSubsystem m_FaceSubsystem;
+        UnityEngine.InputSystem.XR.Eyes eyes;
+        
         
         Vector3 lastKnownPosition;
 
@@ -79,6 +82,13 @@ namespace UnityEngine.XR.ARFoundation.Samples
             UpdateScreenReticle();
 
             if(m_Face.fixationPoint==null)
+            {
+                m_FixationReticleGameObject.GetComponent<Renderer>().material.color=Color.blue;
+                Wait();
+                m_FixationReticleGameObject.GetComponent<Renderer>().material.color=Color.white;
+            }
+
+            else if(eyes.rightEyeOpenAmount==0 && eyes.leftEyeOpenAmount==0)
             {
                 m_FixationReticleGameObject.GetComponent<Renderer>().material.color=Color.blue;
                 Wait();
