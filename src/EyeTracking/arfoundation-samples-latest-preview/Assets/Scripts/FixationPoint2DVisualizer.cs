@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
-using UnityEngine.InputSystem.XR;
 
 namespace UnityEngine.XR.ARFoundation.Samples
 {
@@ -28,12 +27,8 @@ namespace UnityEngine.XR.ARFoundation.Samples
 
         Canvas m_Canvas;
         ARFace m_Face;
-        XRFaceSubsystem m_FaceSubsystem;
-        UnityEngine.InputSystem.XR.Eyes eyes;
-        
-        
+        XRFaceSubsystem m_FaceSubsystem;        
         Vector3 lastKnownPosition;
-
         void Awake()
         {
             m_Face = GetComponent<ARFace>();
@@ -80,20 +75,6 @@ namespace UnityEngine.XR.ARFoundation.Samples
             CreateEyeGameObjectsIfNecessary();
             SetVisible((m_Face.trackingState == TrackingState.Tracking) && (ARSession.state > ARSessionState.Ready));
             UpdateScreenReticle();
-
-            if(m_Face.fixationPoint==null)
-            {
-                m_GUIFixationReticlePrefab.GetComponent<Renderer>().material.color=Color.blue;
-                Wait();
-                m_GUIFixationReticlePrefab.GetComponent<Renderer>().material.color=Color.white;
-            }
-
-            else if(eyes.rightEyeOpenAmount==0 && eyes.leftEyeOpenAmount==0)
-            {
-                m_GUIFixationReticlePrefab.GetComponent<Renderer>().material.color=Color.blue;
-                Wait();
-                m_GUIFixationReticlePrefab.GetComponent<Renderer>().material.color=Color.white;
-            }
         }
 
 
@@ -112,11 +93,6 @@ namespace UnityEngine.XR.ARFoundation.Samples
             {
                 m_FixationReticleGameObject.GetComponent<RectTransform>().anchoredPosition3D = mainCamera.ViewportToScreenPoint(mirrorFixationInView);
             }
-        }
-
-        IEnumerator Wait()
-        {
-            yield return new WaitForSeconds(1);
         }
     }
 }
