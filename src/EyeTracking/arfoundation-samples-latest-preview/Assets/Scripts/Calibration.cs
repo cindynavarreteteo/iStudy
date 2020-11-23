@@ -16,6 +16,16 @@ namespace UnityEngine.XR.ARFoundation.Samples
     public class Calibration : MonoBehaviour
     {
 
+        [SerializeField]
+        GameObject m_GUICalibrationDotPrefab;
+
+        public GameObject CalibrationDotPrefab
+        {
+            get => m_GUICalibrationDotPrefab;
+            set => m_GUICalibrationDotPrefab = value;
+        }
+        GameObject m_CalibrationDotGameObject;
+
         Canvas m_Canvas;
         ARFace m_Face;
         XRFaceSubsystem m_FaceSubsystem;        
@@ -29,6 +39,11 @@ namespace UnityEngine.XR.ARFoundation.Samples
             var faceManager = FindObjectOfType<ARFaceManager>();
             if (faceManager != null && faceManager.subsystem != null && faceManager.descriptor.supportsEyeTracking)
             {
+                var canvas = FindObjectOfType<Canvas>();
+                if(m_Face.fixationPoint != null && canvas != null && m_CalibrationDotGameObject == null)
+                {
+                    m_CalibrationDotGameObject=Instantiate(m_GUICalibrationDotPrefab, canvas.transform);
+                }
                 m_FaceSubsystem = (XRFaceSubsystem)faceManager.subsystem;
                 m_Face.updated += OnUpdated;
             }
