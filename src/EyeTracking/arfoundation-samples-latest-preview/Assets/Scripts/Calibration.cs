@@ -34,6 +34,12 @@ namespace UnityEngine.XR.ARFoundation.Samples
         {
             m_Face = GetComponent<ARFace>();
         }
+
+        void SetVisible(bool visible)
+        {
+            if (m_CalibrationDotGameObject != null)
+                m_CalibrationDotGameObject.SetActive(visible);
+        }
         void OnEnable()
         {
             var faceManager = FindObjectOfType<ARFaceManager>();
@@ -43,6 +49,7 @@ namespace UnityEngine.XR.ARFoundation.Samples
                 if(m_Face.fixationPoint != null && canvas != null && m_CalibrationDotGameObject == null)
                 {
                     m_CalibrationDotGameObject=Instantiate(m_GUICalibrationDotPrefab, canvas.transform);
+                    SetVisible((m_Face.trackingState == TrackingState.Tracking) && (ARSession.state > ARSessionState.Ready));
                 }
                 m_FaceSubsystem = (XRFaceSubsystem)faceManager.subsystem;
                 m_Face.updated += OnUpdated;
@@ -56,11 +63,13 @@ namespace UnityEngine.XR.ARFoundation.Samples
         void OnDisable()
         {
             m_Face.updated -= OnUpdated;
+            SetVisible(false);
         }
 
         void OnUpdated(ARFaceUpdatedEventArgs eventArgs)
         {
             Calibrate();
+            SetVisible((m_Face.trackingState == TrackingState.Tracking) && (ARSession.state > ARSessionState.Ready));
         }
 
 
@@ -74,8 +83,14 @@ namespace UnityEngine.XR.ARFoundation.Samples
             var mirrorFixationInView = new Vector3(1 - fixationInViewSpace.x, 1 - fixationInViewSpace.y, fixationInViewSpace.z);
 
             lastKnownPosition=mirrorFixationInView;
+            var CenterPoint=new Vector3(0,0,0);
 
             Debug.Log("Offset:" + lastKnownPosition);
+            
+            if (m_CalibrationDotGameObject != null)
+            {
+                m_CalibrationDotGameObject.GetComponent<RectTransform>().anchoredPosition3D = mainCamera.ViewportToScreenPoint(CenterPoint);
+            }
         }
     }
 }
