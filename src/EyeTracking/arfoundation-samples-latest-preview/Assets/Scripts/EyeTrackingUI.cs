@@ -22,7 +22,7 @@ namespace UnityEngine.XR.ARFoundation.Samples
             if (m_Manager != null && m_Manager.subsystem != null && m_Manager.descriptor.supportsEyeTracking)
             {
                 var infoGO = GetComponent<Text>();
-                infoGO.text = "This device supports eye tracking.";
+                infoGO.text = "Please allow the device to calibrate by looking at the dot in the center. \n Once you are looking at the dot press the button";
             }
             else
             {
