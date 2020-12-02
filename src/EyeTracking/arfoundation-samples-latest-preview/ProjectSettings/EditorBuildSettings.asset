@@ -5,6 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/FaceTracking/Calibration.unity
+    guid: 04b0d3b1b08fabb439bf131ed9f9952a
+  - enabled: 1
+    path: Assets/Scenes/FaceTracking/FixationPoint.unity
+    guid: b0bf27dc892684a049959459ba5e6f8f
   - enabled: 0
     path: Assets/Scenes/ARFoundationMenu/Menu.unity
     guid: 904110ab8cef14f7d96c56ca20774e5a
@@ -59,9 +65,6 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/FaceTracking/FacePose.unity
     guid: d8b65509a10894e1dbb93c799ececfd9
-  - enabled: 0
-    path: Assets/Scenes/FaceTracking/FixationPoint.unity
-    guid: b0bf27dc892684a049959459ba5e6f8f
   - enabled: 0
     path: Assets/Scenes/FaceTracking/WorldCameraWithUserFacingFaceTracking.unity
     guid: ecea31d2ea5464e52bedb91fa1fcb6bb
@@ -125,9 +128,6 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/ThermalState/ThermalState.unity
     guid: e5b0cb11dfe354e67a344c280bf8b611
-  - enabled: 1
-    path: Assets/Scenes/FaceTracking/Calibration.unity
-    guid: 04b0d3b1b08fabb439bf131ed9f9952a
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: f8ce26fe3bc69499b9be4b2378e97a94,
       type: 2}
