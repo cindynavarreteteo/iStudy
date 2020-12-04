@@ -29,7 +29,7 @@ namespace UnityEngine.XR.ARFoundation.Samples
         Canvas m_Canvas;
         ARFace m_Face;
         XRFaceSubsystem m_FaceSubsystem;        
-        Vector3 lastKnownPosition;
+        static Vector3 offset;
         void Awake()
         {
             m_Face = GetComponent<ARFace>();
@@ -82,10 +82,10 @@ namespace UnityEngine.XR.ARFoundation.Samples
             // The camera texture is mirrored so x and y must be changed to match where the fixation point is in relation to the face.
             var mirrorFixationInView = new Vector3(1 - fixationInViewSpace.x, 1 - fixationInViewSpace.y, fixationInViewSpace.z);
 
-            lastKnownPosition=mirrorFixationInView;
+            offset=mirrorFixationInView;
             var CenterPoint=new Vector3(0,0,0);
 
-            Debug.Log("Offset:" + lastKnownPosition);
+            Debug.Log("Offset:" + offset);
             
             if (m_CalibrationDotGameObject != null)
             {
