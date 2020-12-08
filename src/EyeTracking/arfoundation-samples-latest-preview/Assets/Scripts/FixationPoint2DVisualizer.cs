@@ -95,7 +95,7 @@ namespace UnityEngine.XR.ARFoundation.Samples
 
             if (m_FixationReticleGameObject != null)
             {
-                m_FixationReticleGameObject.GetComponent<RectTransform>().anchoredPosition3D = mainCamera.ViewportToScreenPoint(mirrorFixationInView);
+                m_FixationReticleGameObject.GetComponent<RectTransform>().anchoredPosition3D = mainCamera.ViewportToScreenPoint(0,0,0);
             }
         }
     }
