@@ -23,36 +23,18 @@ namespace UnityEngine.XR.ARFoundation.Samples
         {
             get => m_GUICalibrationDotPrefab;
             set => m_GUICalibrationDotPrefab = value;
-        }
-
-        [SerializeField]
-        GameObject m_GUIFixationReticlePrefab;
-
-        public GameObject fixationReticlePrefab
-        {
-            get => m_GUIFixationReticlePrefab;
-            set => m_GUIFixationReticlePrefab = value;
-        }
-        GameObject m_FixationReticleGameObject;
-        GameObject m_CalibrationDotGameObject;
+        }        
+        public static GameObject m_CalibrationDotGameObject;
 
         Canvas m_Canvas;
         ARFace m_Face;
         XRFaceSubsystem m_FaceSubsystem;        
-        static Vector3 offset;
+        Vector3 offset;
         void Awake()
         {
             m_Face = GetComponent<ARFace>();
         }
 
-        void CreateEyeGameObjectsIfNecessary()
-        {
-            var canvas = FindObjectOfType<Canvas>();
-            if (m_Face.fixationPoint != null && canvas != null && m_FixationReticleGameObject == null)
-            {
-                m_FixationReticleGameObject = Instantiate(m_GUIFixationReticlePrefab, canvas.transform);
-            }
-        }
 
         void SetVisible(bool visible)
         {
@@ -87,7 +69,6 @@ namespace UnityEngine.XR.ARFoundation.Samples
 
         void OnUpdated(ARFaceUpdatedEventArgs eventArgs)
         {
-            CreateEyeGameObjectsIfNecessary();
             Calibrate();
             SetVisible((m_Face.trackingState == TrackingState.Tracking) && (ARSession.state > ARSessionState.Ready));
         }
@@ -109,12 +90,9 @@ namespace UnityEngine.XR.ARFoundation.Samples
             
             if (m_CalibrationDotGameObject != null)
             {
-                m_CalibrationDotGameObject.GetComponent<RectTransform>().anchoredPosition3D = mainCamera.ViewportToScreenPoint(CenterPoint);
+                m_CalibrationDotGameObject.GetComponent<RectTransform>().anchoredPosition3D = mainCamera.ViewportToScreenPoint(mirrorFixationInView);
             }
-            if (m_FixationReticleGameObject != null)
-            {
-                m_FixationReticleGameObject.GetComponent<RectTransform>().anchoredPosition3D = mainCamera.ViewportToScreenPoint(mirrorFixationInView);
-            }
+
         }
     }
 }
