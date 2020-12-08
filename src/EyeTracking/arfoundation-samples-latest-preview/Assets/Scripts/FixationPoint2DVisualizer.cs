@@ -28,12 +28,12 @@ namespace UnityEngine.XR.ARFoundation.Samples
         Canvas m_Canvas;
         ARFace m_Face;
         XRFaceSubsystem m_FaceSubsystem;        
+
         Vector3 offset;
         void Awake()
         {
             m_Face = GetComponent<ARFace>();
-            DontDestroyOnLoad(Calibration.m_CalibrationDotGameObject);
-            offset=Calibration.m_CalibrationDotGameObject.GetComponent<RectTransform>().anchoredPosition3D;
+            offset=Calibration.offset;
         }
 
         void CreateEyeGameObjectsIfNecessary()

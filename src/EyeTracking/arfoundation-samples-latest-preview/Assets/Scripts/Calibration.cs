@@ -24,12 +24,17 @@ namespace UnityEngine.XR.ARFoundation.Samples
             get => m_GUICalibrationDotPrefab;
             set => m_GUICalibrationDotPrefab = value;
         }        
-        public static GameObject m_CalibrationDotGameObject;
+        GameObject m_CalibrationDotGameObject;
 
         Canvas m_Canvas;
         ARFace m_Face;
-        XRFaceSubsystem m_FaceSubsystem;        
-        Vector3 offset;
+        XRFaceSubsystem m_FaceSubsystem;  
+
+        public static Vector3 offset;
+        public static float offsetX; 
+        public static float offsetY; 
+        public static float offsetZ; 
+
         void Awake()
         {
             m_Face = GetComponent<ARFace>();
@@ -84,6 +89,7 @@ namespace UnityEngine.XR.ARFoundation.Samples
             var mirrorFixationInView = new Vector3(1 - fixationInViewSpace.x, 1 - fixationInViewSpace.y, fixationInViewSpace.z);
 
             offset=mirrorFixationInView;
+
             var CenterPoint=new Vector3(0,0,0);
 
             Debug.Log("Offset:" + offset);
