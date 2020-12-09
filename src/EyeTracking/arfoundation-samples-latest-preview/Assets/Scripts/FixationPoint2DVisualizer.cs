@@ -92,10 +92,14 @@ namespace UnityEngine.XR.ARFoundation.Samples
             // The camera texture is mirrored so x and y must be changed to match where the fixation point is in relation to the face.
             var mirrorFixationInView = new Vector3(1 - fixationInViewSpace.x, 1 - fixationInViewSpace.y, fixationInViewSpace.z);
 
+            var CalibPoint= new Vector3(mirrorFixationInView.x-offset.x, mirrorFixationInView.y-offset.y, mirrorFixationInView.z-offset.z);
+
+            Debug.Log("Reticle Point: " + CalibPoint);
+
 
             if (m_FixationReticleGameObject != null)
             {
-                m_FixationReticleGameObject.GetComponent<RectTransform>().anchoredPosition3D = mainCamera.ViewportToScreenPoint(0,0,0);
+                m_FixationReticleGameObject.GetComponent<RectTransform>().anchoredPosition3D = mainCamera.ViewportToScreenPoint(CalibPoint);
             }
         }
     }
