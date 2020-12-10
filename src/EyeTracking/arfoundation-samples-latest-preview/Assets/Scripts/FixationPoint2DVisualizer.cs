@@ -23,7 +23,7 @@ namespace UnityEngine.XR.ARFoundation.Samples
             get => m_GUIFixationReticlePrefab;
             set => m_GUIFixationReticlePrefab = value;
         }
-        GameObject m_FixationReticleGameObject;
+        public GameObject m_FixationReticleGameObject;
 
         Canvas m_Canvas;
         ARFace m_Face;
@@ -95,6 +95,7 @@ namespace UnityEngine.XR.ARFoundation.Samples
             var CalibPoint= new Vector3(mirrorFixationInView.x-offset.x, mirrorFixationInView.y-offset.y, mirrorFixationInView.z-offset.z);
 
             Debug.Log("Reticle Point: " + CalibPoint);
+            Debug.Log("Rect Transform" + m_FixationReticleGameObject.GetComponent<RectTransform>().anchoredPosition3D);
 
 
             if (m_FixationReticleGameObject != null)
