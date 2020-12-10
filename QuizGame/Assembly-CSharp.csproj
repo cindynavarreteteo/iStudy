@@ -101,6 +101,7 @@
     <Compile Include="Assets\MaterialUI\Examples\Scripts\04 - RadioButton\Example04.cs" />
     <Compile Include="Assets\MaterialUI\Scripts\TextInputLine.cs" />
     <Compile Include="Assets\MaterialUI\Scripts\MenuArrowAnim.cs" />
+    <Compile Include="Assets\Scripts\MouseHover.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
