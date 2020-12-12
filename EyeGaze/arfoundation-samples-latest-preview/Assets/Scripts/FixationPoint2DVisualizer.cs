@@ -27,7 +27,9 @@ namespace UnityEngine.XR.ARFoundation.Samples
 
         Canvas m_Canvas;
         ARFace m_Face;
-        XRFaceSubsystem m_FaceSubsystem;        
+        XRFaceSubsystem m_FaceSubsystem;      
+
+        public static Vector3 buttonChecker;  
 
         Vector3 offset;
         void Awake()
@@ -93,11 +95,20 @@ namespace UnityEngine.XR.ARFoundation.Samples
             var mirrorFixationInView = new Vector3(1 - fixationInViewSpace.x, 1 - fixationInViewSpace.y, fixationInViewSpace.z);
 
             var CalibPoint= new Vector3(mirrorFixationInView.x-offset.x, mirrorFixationInView.y-offset.y, mirrorFixationInView.z-offset.z);
-
+            
             Debug.Log("Reticle Point: " + CalibPoint);
             Debug.Log("Rect Transform" + m_FixationReticleGameObject.GetComponent<RectTransform>().anchoredPosition3D);
 
+            if(CalibPoint.x >= 0.1)
+            {
+              Debug.Log("Over True Button");  
+            }
 
+            if(CalibPoint.x >= -0.1)
+            {
+                Debug.Log("Over False Button");
+            }
+                
             if (m_FixationReticleGameObject != null)
             {
                 m_FixationReticleGameObject.GetComponent<RectTransform>().anchoredPosition3D = mainCamera.ViewportToScreenPoint(CalibPoint);
