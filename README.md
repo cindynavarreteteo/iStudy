@@ -1,4 +1,4 @@
-# My new project
+# iStudy by EyeGaze
 
 ## Introduction
 
